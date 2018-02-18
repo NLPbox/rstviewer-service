@@ -1,4 +1,4 @@
-FROM nlpbox/rstviewer # FIXME: implement rstviewer docker first
+FROM nlpbox/rstviewer
 
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip && \
