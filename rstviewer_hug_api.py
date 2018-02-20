@@ -5,8 +5,7 @@ import sys
 import hug
 import sh
 
-
-CONVERTER_EXECUTABLE = 'codra.sh'
+CONVERTER_EXECUTABLE = 'rstviewer'
 INPUT_FILEPATH = '/tmp/input.rs3'
 
 
