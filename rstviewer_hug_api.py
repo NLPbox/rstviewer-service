@@ -35,18 +35,21 @@ def rs3_to_png(body):
         return {'body': body}
 
 
-@hug.post('/rs3_to_html', output=hug.output_format.html)
-def rs3_to_html(body):
-    converter = sh.Command(CONVERTER_EXECUTABLE)
+# FIXME: rstviewer produces html that needs js and those files are not served
+#        by this API
+#
+# ~ @hug.post('/rs3_to_html', output=hug.output_format.html)
+# ~ def rs3_to_html(body):
+    # ~ converter = sh.Command(CONVERTER_EXECUTABLE)
 
-    if 'input' in body:
-        input_file_content = body['input']
-        with open(INPUT_FILEPATH, 'wb') as input_file:
-            input_file.write(input_file_content)
+    # ~ if 'input' in body:
+        # ~ input_file_content = body['input']
+        # ~ with open(INPUT_FILEPATH, 'wb') as input_file:
+            # ~ input_file.write(input_file_content)
 
-        output_filepath = INPUT_FILEPATH+'.html'
-        converter_stdout = converter('-f', 'html', input_file.name, output_filepath)
-        with codecs.open(output_filepath, 'r', 'utf-8') as html_file:
-            return html_file.read()
-    else:
-        return {'body': body}
+        # ~ output_filepath = INPUT_FILEPATH+'.html'
+        # ~ converter_stdout = converter('-f', 'html', input_file.name, output_filepath)
+        # ~ with codecs.open(output_filepath, 'r', 'utf-8') as html_file:
+            # ~ return html_file.read()
+    # ~ else:
+        # ~ return {'body': body}
