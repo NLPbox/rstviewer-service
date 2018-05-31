@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+import codecs
 import os
 import sys
 
@@ -44,6 +46,7 @@ def rs3_to_html(body):
 
         output_filepath = INPUT_FILEPATH+'.html'
         converter_stdout = converter('-f', 'html', input_file.name, output_filepath)
-        return output_filepath
+        with codecs.open(output_filepath, 'r', 'utf-8') as html_file:
+            return html_file.read()
     else:
         return {'body': body}
