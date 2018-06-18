@@ -21,6 +21,7 @@ def process_data(request, response, resource):
 
 @hug.post('/rs3_to_png', output=hug.output_format.file)
 def rs3_to_png(body):
+#    import pudb; pudb.set_trace()
     converter = sh.Command(CONVERTER_EXECUTABLE)
 
     if 'input' in body:
@@ -29,7 +30,7 @@ def rs3_to_png(body):
             input_file.write(input_file_content)
 
         output_filepath = INPUT_FILEPATH+'.png'
-        converter_stdout = converter('-f', 'png', input_file.name, output_filepath)
+        converter_stdout = converter('-f', 'png-base64', input_file.name, output_filepath)
         return output_filepath
     else:
         return {'body': body}
