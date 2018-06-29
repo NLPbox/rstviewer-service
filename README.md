@@ -34,5 +34,7 @@ Usage
 of the Rhetorical Structure tree or return a `base64` encoded string of
 a `.png` image.
 
+```
 curl -X POST -F "input=@input.rs3" http://localhost:8000/rs3_to_png > output.png
 curl -X POST -F "input=@input.rs3" http://localhost:8000/rs3_to_png_base64 | base64 --decode > decoded.png
+```
