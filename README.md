@@ -1,3 +1,10 @@
+Warning
+=======
+
+This repository is DEPRECATED, please use the REST API of rstWeb instead:
+https://github.com/NLPbox/rstweb-service
+
+
 rstviewer-service
 =================
 
